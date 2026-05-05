@@ -22,6 +22,8 @@ const AdminDashboard = () => {
     image: "",
   });
 
+  const [editingEventId, setEditingEventId] = useState(null);
+
   useEffect(() => {
     if (!user || user.role !== "admin") {
       navigate("/login");
@@ -63,6 +65,57 @@ const AdminDashboard = () => {
       fetchData();
     } catch (error) {
       alert(error.response?.data?.message || "Error creating event");
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      title: "",
+      description: "",
+      date: "",
+      location: "",
+      category: "",
+      totalSeats: "",
+      ticketPrice: "",
+      image: "",
+    });
+    setEditingEventId(null);
+    setShowEventForm(false);
+  };
+
+  const handleEditClick = (event) => {
+    const formattedDate = event.date
+      ? new Date(event.date).toISOString().split("T")[0]
+      : "";
+
+    setFormData({
+      title: event.title,
+      description: event.description,
+      date: formattedDate,
+      location: event.location,
+      category: event.category,
+      totalSeats: event.totalSeats,
+      ticketPrice: event.ticketPrice,
+      image: event.image || "",
+    });
+    setEditingEventId(event._id);
+    setShowEventForm(true);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleEditSubmitEvent = async (e) => {
+    e.preventDefault();
+    try {
+      if (editingEventId) {
+        await api.put(`/events/${editingEventId}`, formData);
+      } else {
+        await api.post("/events", formData);
+      }
+      resetForm();
+      fetchData();
+    } catch (error) {
+      alert(error.response?.data?.message || "Error saving event");
     }
   };
 
@@ -320,12 +373,21 @@ const AdminDashboard = () => {
                         </span>
                       </div>
                     </div>
-                    <button
-                      onClick={() => handleDeleteEvent(event._id)}
-                      className="w-full sm:w-auto text-red-500 hover:text-white hover:bg-red-500 border border-red-200 px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm shrink-0"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <button
+                        onClick={() => handleEditClick(event._id)}
+                        className="w-full sm:w-auto text-blue-500 hover:text-white hover:bg-blue-500 border border-blue-200 px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm shrink-0"
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        onClick={() => handleDeleteEvent(event._id)}
+                        className="w-full sm:w-auto text-red-500 hover:text-white hover:bg-red-500 border border-red-200 px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm shrink-0"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </li>
                 ))
               )}

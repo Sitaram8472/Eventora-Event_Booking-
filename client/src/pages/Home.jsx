@@ -200,6 +200,125 @@ const Home = () => {
         </div>
       )}
 
+      {/* --- NEW HOW IT WORKS SECTION --- */}
+
+      <div className="mt-24 mb-16 px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            How Eventora Works
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            A secure and seamless experience from discovering your next event to
+            managing ticket sales.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Attendee Card */}
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition">
+            <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3">
+              <span className="text-3xl">🎟️</span> For Attendees
+            </h3>
+            <ul className="space-y-8">
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold shrink-0 mt-1">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    Secure Sign Up
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Create an account and verify your identity via a secure
+                    email OTP to ensure a spam-free platform.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold shrink-0 mt-1">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    Discover & Explore
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Browse dynamic event pages with high-quality images,
+                    descriptions, and real-time seating capacity.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold shrink-0 mt-1">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    2-Step Booking
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Verify your booking intent via a secondary OTP. Your request
+                    goes into a secure pending queue.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Organizer Card */}
+          <div className="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-200 hover:shadow-md transition">
+            <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3">
+              <span className="text-3xl">🛠️</span> For Organizers
+            </h3>
+            <ul className="space-y-8">
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-300 text-gray-800 flex items-center justify-center font-bold shrink-0 mt-1">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    Create Events
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Easily publish free or paid events with specific categories,
+                    dates, and strict capacity limits.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-300 text-gray-800 flex items-center justify-center font-bold shrink-0 mt-1">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    Smart Queue Management
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Review user requests manually in the admin dashboard to
+                    perfectly control attendance and prevent overbooking.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gray-300 text-gray-800 flex items-center justify-center font-bold shrink-0 mt-1">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg mb-1">
+                    Analytics Dashboard
+                  </h4>
+                  <p className="text-gray-500 leading-relaxed">
+                    Track your pending requests, overall revenue, and total
+                    confirmed paid clients from a bird's-eye view.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* --- END HOW IT WORKS SECTION --- */}
+
       {/* Footer Section */}
       <footer className="mt-auto pt-16 pb-8 border-t border-gray-200 text-center">
         <div className="flex justify-center items-center gap-2 mb-4">
